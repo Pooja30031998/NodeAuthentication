@@ -43,7 +43,13 @@ export default class DefaultController {
   async postSignup(req, res, next) {
     try {
       const userDetails = req.body;
-      console.log(userDetails);
+      //Recaptcha
+      const recaptcha = req.body['g-recaptcha-response'];
+
+      if (recaptcha === undefined || recaptcha === '' || recaptcha === null) {
+         return res.status(404).render("signin",{msg:null, error:"Please select captcha"});
+      }
+      //checking if password and confirm password are same
       if (userDetails.password != userDetails.cpassword) {
         return res
           .status(400)
@@ -71,7 +77,7 @@ export default class DefaultController {
       const recaptcha = req.body['g-recaptcha-response'];
 
       if (recaptcha === undefined || recaptcha === '' || recaptcha === null) {
-         return res.status(404).render("signin",{msg:null, , error:"Please select captcha"});
+         return res.status(404).render("signin",{msg:null, error:"Please select captcha"});
       }
       const signedIn = await this.repository.postSignin(userDetails);
       if (signedIn.error) {
