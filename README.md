@@ -64,9 +64,9 @@ To run this project locally, follow these steps:
    npm install
    ```
 4. Start the server
-  ```
-  node index.js
-  ```
+   ```
+   node index.js
+   ```
 5. Open web browser and visit ```http://localhost:3000``` to access the site.
 
 # Technologies Used
