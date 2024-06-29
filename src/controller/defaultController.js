@@ -67,6 +67,12 @@ export default class DefaultController {
   async postSignin(req, res, next) {
     try {
       const userDetails = req.body;
+      //Recaptcha
+      const recaptcha = req.body['g-recaptcha-response'];
+
+      if (recaptcha === undefined || recaptcha === '' || recaptcha === null) {
+         return res.status(404).render("signin",{msg:null, , error:"Please select captcha"});
+      }
       const signedIn = await this.repository.postSignin(userDetails);
       if (signedIn.error) {
         return res
