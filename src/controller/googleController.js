@@ -1,5 +1,5 @@
 import authRepository from "../model/repository.js";
-import UserModel from "./user-schema.js";
+import UserModel from "../model/user-schema.js";
 import bcrypt from "bcrypt";
 
 export default class GoogleController{
