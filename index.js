@@ -39,6 +39,34 @@ server.use(
   })
 );
 
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(
+	new GoogleStrategy(
+		{
+			clientID: process.env.CLIENT_ID,
+			clientSecret: process.env.CLIENT_SECRET,
+			callbackURL: process.env.callbackURL,
+			scope: ["profile", "email"],
+		},
+		function (accessToken, refreshToken, profile, callback) {
+			// console.log('Profile Data')
+			// console.log(profile)
+			callback(null, profile);
+		}
+	)
+);
+
+passport.serializeUser((user, done) => {
+	done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+	done(null, user);
+});
+
 //handling routes
 server.use("/", defaultRouter);
 
