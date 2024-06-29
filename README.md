@@ -2,7 +2,7 @@
 This project is a Node.js application that provides authentication functionality, including sign up, sign in, sign out, password reset, forgot password and Google login/signup.
 
 # Hosted URL
-Visit the hosted site [here]()
+Visit the hosted site [here](https://nodeauthentication-xjto.onrender.com)
 
 # Features
 - ### Sign up with Email:
