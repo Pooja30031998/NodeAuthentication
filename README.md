@@ -46,7 +46,7 @@ node-authentication/
 ├── models/                  # Database models
 ├── routes/                  # Route definitions
 ├── views/                   # EJS views
-├── server.js                # Express server setup
+├── index.js                 # Express server setup
 │
 ├── public/                  # Static assets
 │
@@ -65,7 +65,7 @@ To run this project locally, follow these steps:
    ```
 4. Start the server
   ```
-  node server.js
+  node index.js
   ```
 5. Open web browser and visit ```http://localhost:3000``` to access the site.
 
