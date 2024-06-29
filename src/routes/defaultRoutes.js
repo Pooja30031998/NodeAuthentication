@@ -1,6 +1,9 @@
 import express from "express";
+import passport from 'passport';
 import DefaultController from "../controller/defaultController.js";
+import GoogleController from "../controller/googleController.js";
 import auth from "../middlewares/auth-middleware.js";
+
 
 //creating express router for default routes
 const defaultRouter = express.Router();
@@ -62,6 +65,29 @@ defaultRouter.post("/reset", auth, (req, res, next) => {
 //get logout route
 defaultRouter.get("/logout", (req, res, next) => {
   defaultController.logout(req, res, next);
+});
+
+//creating googleController instance
+const googleController = new GoogleController();
+
+defaultRouter.get("/auth/google", passport.authenticate('google', { scope: 
+	[ 'email', 'profile' ] 
+}));
+
+defaultRouter.get(
+	"/auth/google/callback",
+	passport.authenticate("google", {
+		successRedirect: "/login/success",
+		failureRedirect: "/login/failed",
+	})
+);
+
+defaultRouter.get("/login/success", (req, res, next) => {
+  googleController.signInSuccess(req, res, next);
+});
+
+defaultRouter.get("/login/failed", (req, res, next) => {
+  googleController.signInFailed(req, res, next);
 });
 
 export default defaultRouter;
