@@ -40,8 +40,8 @@ server.use(
 );
 
 //Passport
-app.use(passport.initialize());
-app.use(passport.session());
+server.use(passport.initialize());
+server.use(passport.session());
 
 passport.use(
 	new GoogleStrategy(
@@ -52,8 +52,6 @@ passport.use(
 			scope: ["profile", "email"],
 		},
 		function (accessToken, refreshToken, profile, callback) {
-			// console.log('Profile Data')
-			// console.log(profile)
 			callback(null, profile);
 		}
 	)
