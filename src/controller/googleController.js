@@ -3,6 +3,9 @@ import UserModel from "../model/user-schema.js";
 import bcrypt from "bcrypt";
 
 export default class GoogleController{
+  constructor() {
+    this.repository = new authRepository();
+  }
   signInSuccess = async (req, res, next) => {
         const userData =  req.user._json;
         const { email, name, sub } = userData;
@@ -13,12 +16,12 @@ export default class GoogleController{
                 req.session.userEmail = email;
                 return res.status(200).render("home", { userEmail: req.session.userEmail });
             }
-            const newUser = new UserModel({
-               userName: name,
-               email: email,
-               password: sub,
-            });
-            await newUser.save();
+            const userDetails = {name, email, password:sub};
+            const newUser = await this.repository.postSignup(userDetails);
+            if (newUser.error) {
+                req.session.userEmail = email;
+                return res.status(200).render("home", { userEmail: req.session.userEmail });
+            }
             req.session.userEmail = email;
             return res.status(200).render("home", { userEmail: req.session.userEmail });
         }else {
