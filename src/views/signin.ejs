@@ -1,0 +1,61 @@
+<div class="main-div">
+  <div class="form-div">
+    <h3 class="text-center title">Sign In</h3>
+    <br />
+
+    <!-- if there is an error message show it alert box -->
+    <% if (error) { %>
+    <div class="alert alert-danger" role="alert"><%= error %></div>
+    <br />
+    <% } %>
+
+    <!-- if there is any message show it alert box -->
+    <% if (msg) { %>
+    <div class="alert alert-success" role="alert"><%= msg %></div>
+    <br />
+    <% } %>
+
+    <!-- signin form -->
+    <form action="/" method="post">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          name="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+      <div class="mb-3"><a href="/forgot"> Forgot Password? </a></div>
+      <div class="mb-3">Recaptcha</div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">Sign In</button>
+      </div>
+    </form>
+    <hr />
+
+    <!-- Not registered yet div -->
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <a
+          class="inline-block align-baseline font-bold text-sm float-end msg-s"
+          href="/signup"
+        >
+          Not registered yet? SignUp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+body {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.container {
+  display: flex;
+}
+
+.main-div {
+  border: orange solid 2px;
+  width: 60%;
+  border-radius: 20px;
+}
+
+.main-div:hover {
+  box-shadow: 0 0 4px 4px rgb(242, 131, 131);
+  transform: scale(1.02);
+}
+
+.title {
+  color: rgb(246, 112, 112);
+}
+
+.form-div {
+  padding: 45px;
+}
+
+.msg {
+  text-align: center;
+  font-size: 26px;
+  height: 60px;
+  display: flex;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    margin-top: 15%;
+  }
+  .main-div {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    margin-top: 40%;
+  }
+  .main-div {
+    width: 80%;
+  }
+}

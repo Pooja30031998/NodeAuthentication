@@ -1,0 +1,45 @@
+<div class="main-div">
+  <div class="form-div">
+    <h3 class="text-center title">Forgot Password?</h3>
+    <br />
+
+    <!-- if there is an error message show it alert box -->
+    <% if (error) { %>
+    <div class="alert alert-danger" role="alert"><%= error %></div>
+    <% }else if(msg){ %>
+    <div class="alert alert-success" role="alert"><%= msg %></div>
+    <% }else{ %>
+    <br />
+
+    <!-- forgot password form -->
+    <form action="/forgot" method="post">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          name="email"
+          required
+        />
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+    <!-- <hr />
+    <div class="row mt-3">
+          <div class="col-md-12">
+            <a
+              class="inline-block align-baseline font-bold text-sm float-end msg-s"
+              href="/signup"
+            >
+              Not registered yet? SignUp
+            </a>
+          </div>
+        </div> -->
+
+    <% } %>
+  </div>
+</div>
