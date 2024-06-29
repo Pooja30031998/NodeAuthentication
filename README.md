@@ -30,6 +30,7 @@ PORT=3000
 DB_URL=mongodb://localhost:27017/mydatabase
 CLIENT_ID=your_client_id
 CLIENT_SECRET=your_client_secret
+callbackURL = your callback URL
 EMAIL=your_email@gmail.com
 PASSWORD=your_gmail_passcode
 RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
