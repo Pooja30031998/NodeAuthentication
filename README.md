@@ -36,6 +36,7 @@ RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
 ```
 # Folder Structure
 
+```
 node-authentication/
 ├── config/                  # Configuration files
 │   └── mongodb.js           # MongoDB configuration
@@ -51,6 +52,7 @@ node-authentication/
 ├── package.json             # NPM package configuration
 ├── README.md                # Project README file
 └── .env                     # Environment variables file
+```
 
 # Installation
 To run this project locally, follow these steps:
@@ -64,6 +66,7 @@ To run this project locally, follow these steps:
   ```
   node server.js
   ```
+```
 5. Open web browser and visit ```http://localhost:3000``` to access the site.
 
 # Technologies Used
