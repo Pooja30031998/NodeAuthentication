@@ -58,15 +58,14 @@ node-authentication/
 To run this project locally, follow these steps:
 1. Clone the repository to your local machine
 2. Navigate to the project directory
-3. Install dependencies:
+3. Install dependencies
    ```
    npm install
-  ```
-4. Start the server:
+   ```
+4. Start the server
   ```
   node server.js
   ```
-```
 5. Open web browser and visit ```http://localhost:3000``` to access the site.
 
 # Technologies Used
